@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+cmake_policy(VERSION 2.8)
+set(NAME ASM_UBENCH)
+project(${NAME})
+enable_language(ASM_NASM)
+set(CMAKE_ASM_NASM_FLAGS "${ASM_NASM_FLAGS} -felf64")
+include_directories("3rdparty/libpfc/include")
+add_executable(main main.cpp asm_0.asm 3rdparty/libpfc/src/libpfc.c)
+
+# target_compile_options(main PRIVATE "-l libpfc.so")
